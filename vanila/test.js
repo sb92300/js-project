@@ -1,0 +1,1 @@
+const test = "git test용. 여기는 branch 된 새로운 공간이야."
