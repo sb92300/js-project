@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/boot.css">
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" integrity="sha256-eVNjHw5UeU0jUqPPpZHAkU1z4U+QFBBY488WvueTm88=" crossorigin="anonymous"></script>
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="black-bg" id="black-bg">
+        <div class="white-bg">
+            <p>로그인 하세요.</p>
+            <form action="login.php" id="login-action">
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Email" id="email">
+                <p id="noId">아이디가 틀립니다.</p>
+              </div>
+              <div class="form-group">
+                <input type="password" id="password" class="form-control" placeholder="Password">
+                <p id="noPw">비밀번호가 틀립니다.</p>
+              </div>
+              <button type="submit" class="btn btn-primary">전송</button>
+              <button id="cancel" class="btn btn-primary">취소</button>
+            </form>
+        </div>
+    </div>
+    <div class="left-menu">
+      <p>menu title</p>
+      <a id="close-btn" class="btn btn-primary btn-lg" href="#" role="button">close-menu</a>
+    </div>
+    <div class="nav-menu">
+        <h4 class="nav-logo">Logo</h4>
+        <a id="nav-toggle" class="nav-toggle">products</a>
+    </div>
+    <ul class="list-group nav-sub">
+        <li class="list-group-item">how to study javascript?</li>
+        <li class="list-group-item">how to study jquery</li>
+        <li class="list-group-item">recommend instructor</li>
+      </ul>
+    <div class="jumbotron main-bg">
+        <h1 class="display-4">JavaScript, Jquery</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <a id="logIn-btn" class="btn btn-primary btn-lg" role="button">Log-in</a>
+        <a id="showMenu-btn" class="btn btn-primary btn-lg" role="button">show menu</a>
+      </div>
+      <h4 class="my-4 text-center">showcase</h4>
+      <div class="wrap-slide" style="overflow: hidden; position: relative;">
+          <div class="slide-container">
+            <div class="slide-box"><img src="../image/portfolio1.jpg"></div>
+            <div class="slide-box"><img src="../image/portfolio2.jpg"></div>
+            <div class="slide-box"><img src="../image/portfolio3.jpg"></div>
+          </div>
+          <button class="slide-left"> < </button>
+          <button class="slide-right"> > </button>
+      </div>
+      <div class="numBtn">
+        <button class="slide-1 numBtn-css">1</button>
+        <button class="slide-2 numBtn-css">2</button>
+        <button class="slide-3 numBtn-css">3</button>
+      </div>
+      <div class="my-5"></div>
+      <div class="container mt-5">
+        <ul class="list">
+          <li class="tab-button">Products</li>
+          <li class="tab-button active">Information</li>
+          <li class="tab-button">Shipping</li>
+        </ul>
+      
+        <div class="tab-content">
+          <p>상품설명입니다. Product</p>
+        </div>
+        <div class="tab-content show">
+          <p>상품정보입니다. Info</p>
+        </div>
+        <div class="tab-content">
+          <p>배송정보입니다. Shipping</p>
+        </div>
+      </div>
+    <script>
+      //hammer.js 
+      //querySelectorAll은 모든 요소를 찾아온 것이므로 한 가지만 고르려면 배열을 이용할 것.
+      var img1 = document.querySelectorAll('.slide-box img')[0];
+      var img2 = document.querySelectorAll('.slide-box img')[1];
+      var img3 = document.querySelectorAll('.slide-box img')[2];
+      var nowImg = 1;
+      var manager = new Hammer.Manager(img1);
+          manager.add(new Hammer.Pan({ threshold : 0}));
+          manager.on('pan', function(e){
+            //function(e)에서 e는 이벤트 객체
+            console.log(e.deltaX);
+            if(e.deltaX < -1 && nowImg == 1) {
+            $('.slide-container').css('transform','translateX('+e.deltaX+'px)');
+              if(e.isFinal == true) {
+                $('.slide-container').addClass('transforming');
+                $('.slide-container').css('transform','translateX(-100vw)');
+                nowImg++;
+                console.log(nowImg);
+                setTimeout(function(){
+                  $('.slide-container').removeClass('transforming');
+                }, 500);
+              };
+            };
+          });
+
+          var manager2 = new Hammer.Manager(img2);
+          manager2.add(new Hammer.Pan({ threshold : 0}));
+          manager2.on('pan', function(e){
+            //function(e)에서 e는 이벤트 객체
+            console.log(e.deltaX);
+            if(e.deltaX < -1 && nowImg == 2) {
+            // $('.slide-container').css('transform','translateX('+e.deltaX+'px)');
+              if(e.isFinal == true) {
+                $('.slide-container').addClass('transforming');
+                $('.slide-container').css('transform','translateX(-200vw)');
+                nowImg++;
+                console.log(nowImg);
+                setTimeout(function(){
+                  $('.slide-container').removeClass('transforming');
+                }, 500);
+              };
+            } else if(e.deltaX > 1 && nowImg == 2) {
+              // $('.slide-container').css('transform','translateX('+e.deltaX+'px)');
+              if(e.isFinal == true) {
+                $('.slide-container').addClass('transforming');
+                $('.slide-container').css('transform','translateX(0vw)');
+                nowImg--;
+                console.log(nowImg);
+                setTimeout(function(){
+                  $('.slide-container').removeClass('transforming');
+                }, 500);
+              };
+            };
+          });
+          var manager3 = new Hammer.Manager(img3);
+          manager3.add(new Hammer.Pan({ threshold : 0}));
+          manager3.on('pan', function(e){
+            //function(e)에서 e는 이벤트 객체
+            console.log(e.deltaX);
+            if(e.deltaX > 1 && nowImg == 3) {
+            // $('.slide-container').css('transform','translateX('+e.deltaX+'px)');
+              if(e.isFinal == true) {
+                $('.slide-container').addClass('transforming');
+                $('.slide-container').css('transform','translateX(-100vw)');
+                nowImg--;
+                console.log(nowImg);
+                setTimeout(function(){
+                  $('.slide-container').removeClass('transforming');
+                }, 500);
+              };
+            };
+          });
+
+
+      //로그인 버튼 클릭 시 모달창 토글
+        $('#logIn-btn').click( function() {
+          $('#black-bg').addClass('slide-down');
+          $('#black-bg').removeClass('slide-up');
+        });
+        $('.black-bg').click(function(e) {
+          // e.target; // 실제로 클릭한 요소
+          // e.currentTarget; //지금 이벤트 리스너가 달린 곳(여기서는 .black-bg) = $(this)
+          // e.preventDefault(); // 기본동작 막기
+          //e.target == $('.black-bg') 가 안되는 이유. e.target은 js 문법, 셀렉터는 jquery 문법이라 비교 성립 불가.
+          // if(e.target == this) 는 가능.
+            if(e.target == e.currentTarget) {
+              $('.black-bg').addClass('slide-up');
+            };
+        });
+        $('#cancel').click( function() {
+          $('#black-bg').addClass('slide-up');
+          $('#black-bg').removeClass('slide-down');
+        });       
+      //메뉴 버튼 클릭시 모달창 토글
+        $('#showMenu-btn').click( function() {
+          $('.left-menu').addClass('left-menu-ani');
+          $('.left-menu').removeClass('left-menu-ani-close');
+        });
+        $('#close-btn').click( function() {
+          $('.left-menu').addClass('left-menu-ani-close');
+          $('.left-menu').removeClass('left-menu-ani',)
+        });
+      //product 클릭시 메뉴창
+        $('#nav-toggle').click(function() {
+            $('.nav-sub').slideToggle();
+        });
+      //e-mail, pw 인풋창 검증
+        $('form').on('submit', function(e) {
+          // if($('#email').val() == '') {
+          //   e.preventDefault();
+          //   $('#noId').show();
+          // } else if($('#password').val() == '') {
+          //   e.preventDefault();
+          //   $('#noPw').show();
+          // } else {
+          //   console.log('log-in success');
+          // }
+          var inputEmail = $('#email').val();
+          var regex = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/
+          var regPw = /[A-Z]+/;
+          var inputPw = $('#password').val();
+          if(/\S+@\S+\.\S+/.test(inputEmail) == false || inputEmail == null) {
+            e.preventDefault();
+            $('#noId').show();
+          } else if(regex.test(inputPw) == false || inputPw == null) {
+            e.preventDefault();
+            $('#noPw').show();
+          } else {
+            console.log('log-in success')
+          }
+        });
+        // 사진 슬라이드 기능 (1,2,3 버튼 이용)
+        $('.slide-1').click( function() {
+            $('.slide-container').css('transform','translateX(0vw)');
+        });
+        $('.slide-2').click( function() {
+            $('.slide-container').css('transform','translateX(-100vw)');
+        });
+        $('.slide-3').click( function() {
+          $('.slide-container').css('transform','translateX(-200vw)');
+        });
+        //사진 슬라이드 기능 (다음, 이전 버튼 이용)
+        var nowPic = 1;
+        $('.slide-right').click( function() {
+            if(nowPic < 3) {
+              $('.slide-container').css('transform', 'translateX(-'+ nowPic + '00vw)');
+            nowPic = nowPic + 1
+            };
+        });
+        console.log(nowPic);
+        $('.slide-left').click( function() {
+          if(nowPic > 1) {
+            $('.slide-container').css('transform', 'translateX(-' + (nowPic - 2) + '00vw)');
+            nowPic = nowPic - 1;
+          };
+        });
+        //스크롤 시 nav-menu의 style 변화
+        // $(window).on('scroll', function() {
+        //   if($(window).scrollTop() > 100 ) {
+        //     $('.nav-menu').addClass('nav-menu-css');
+        //     $('.nav-logo').addClass('nav-logo-css');
+        //     $('#nav-toggle').addClass('nav-toggle-css')
+        //   } else {
+        //     $('.nav-menu').removeClass('nav-menu-css');
+        //     $('.nav-logo').removeClass('nav-logo-css');
+        //     $('#nav-toggle').removeClass('nav-toggle-css');
+        //   }
+        // });
+        // var array = ['bmw', 520];
+        // var object = {brand : 'bmw', model : '520'};
+        // var data = [ {brand : 'bmw'}, {model : '520'} ];
+        // // document.getElementById('brand').innerHTML = array[0];
+        // // document.getElementById('model').innerHTML = array[1];
+        // document.getElementById('brand').innerHTML = data[0].brand;
+        // document.getElementById('model').innerHTML = data[1].model;
+    </script>  
+   
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="./tab.js"></script>
+    
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

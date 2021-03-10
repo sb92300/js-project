@@ -1,0 +1,224 @@
+.main-bg {
+    background: url(../image/portfolio1.jpg);
+    background-size: cover;
+    color: rgb(105, 218, 0);
+    font-weight: 600;
+    border-radius: 0;
+}
+.black-bg { 
+    transform: translateY(-1000px);
+}
+.black-bg {
+    background:rgba(0,0,0,0.5);
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+}
+.white-bg, .modal-alert {
+    background-color: #fff;
+    width: 80%;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 120px;
+}
+.white-bg p,a {
+    padding: 10px;
+}
+.white-bg a {
+    margin-top: 20px;
+}
+.white-bg input {
+    width: 300px;
+    margin: 20px;
+    display: block;
+}
+.white-bg button {
+    width: 100px;
+    margin: 20px;
+    padding: 10px;
+}
+#noId {
+    font-size: 10px;
+    margin-left: 10px;
+    margin-top: -20px;
+    margin-bottom: -10px;
+    display: none; 
+}
+
+#noPw {
+    font-size: 10px;
+    margin-left: 10px;
+    margin-top: -20px;
+    margin-bottom: -10px;
+    display: none;
+}
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    align-items: center;
+    background-color: transparent;
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    color: white;
+    height: 80px;
+}
+.nav-menu-css {
+    background: #fff;
+    color: black;
+    height: 60px;
+}
+.nav-logo{
+    font-size: 34px;
+    transition: all 0.5s;
+}
+.nav-logo-css {
+    color: black;
+    font-size: 24px;
+}
+.nav-toggle{
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    transition: all 0.5s;
+}
+.nav-toggle-css {
+    font-size: 16px;
+    color: black;
+}
+.nav-menu:active {
+    color: black;
+}
+.nav-sub {
+    display: none;
+}
+.left-menu {
+    width: 200px;
+    height: 100%;
+    background-color: black;
+    color: white;
+    position: fixed;
+    text-align: center;
+    transform: translateX(-200px);
+    transition: all 1s;
+}
+.left-menu-ani {
+    transform: translateX(0px);
+}
+.left-menu-ani-close {
+    transform: translateX(-200px);
+}
+.slide-down {
+    transform: translateY(0px);
+    transition: all 1s;
+}
+.slide-up {
+    transition: all 1s;
+    transform: translateY(-1000px);
+}
+.slide-box {
+    width: 100vw;
+    height: 80vh;
+    float: left;
+}
+.slide-box img {
+    width: 100%;
+}
+.slide-container {
+    width: 300vw;
+}
+.transforming {
+    transition: transform 0.5s;
+}
+.slide-left2 {
+    transform: translateX(-100vw);
+}
+.slide-left3 {
+    transform: translateX(-200vw);
+}
+.wrap-slide button {
+    position: absolute;
+    top: 45%;
+}
+.slide-right {
+    right: 0;
+}
+.slide-left {
+    top: 45%;
+    left: 0;
+}
+.numBtn {
+    width: 100vw;
+    text-align: center;
+    margin-top: 20px;
+}
+.numBtn-css {
+    width: 100px;
+    background-color: rgb(48, 138, 241);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 0 20px 0 20px;
+}
+.numBtn-css:hover {
+    background-color: rgb(16, 108, 161);
+    transition: all 1s;
+}
+.slide-left, .slide-right {
+    background-color: rgb(48, 138, 241);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 0 20px 0 20px;
+}
+.slide-left:hover {
+    background-color: rgb(16, 108, 161);
+    transition: all 1s;
+}
+.slide-right:hover {
+    background-color: rgb(16, 108, 161);
+    transition: all 1s;
+}
+ul.list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid #ccc;
+  }
+  ul.list::after {
+	content: '';
+	display: block;
+	clear: both;
+  }
+  .tab-button {
+	display: block;
+	padding: 10px 20px 10px 20px;
+	float: left;
+	margin-right: -1px;
+	margin-bottom: -1px;
+	color: grey;
+	text-decoration: none;
+	cursor: pointer;
+  }
+  .active {
+	border-top: 2px solid orange;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid white;
+	border-left: 1px solid #ccc;
+	color: black;
+	margin-top: -2px;
+  }
+  .tab-content {
+	display: none;
+	padding: 10px;
+  }
+  .show {
+	display: block;
+  }
