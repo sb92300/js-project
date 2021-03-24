@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./todo.css">
+    <title>TO DO LIST</title>
+</head>
+<body>
+    <div class="weather-div">
+        <span class="js-weather"></span>
+    </div>
+    <h2 class="js-calendar"></h2>
+    <h2 class="js-clock"></h2>
+    <form class="js-greeting">
+        <input type="text" placeholder="Write your name." onblur="this.placeholder='Write your name.'" onfocus="this.placeholder=''";>
+    </form>
+    <h2 class="hello"></h2>
+    <form class="js-todo">
+        <input type="text" placeholder="Write your To do list!" onblur="this.placeholder='Write your To do list!'"; onfocus="this.placeholder=''";>
+    </form>
+    <ul class="js-list"></ul>
+    <script src="./clock.js"></script>
+    <script src="./greeting.js"></script>
+    <script src="./todo.js"></script>
+    <script src="./weather.js"></script>
+</body>
+</html>

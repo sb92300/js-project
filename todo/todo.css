@@ -1,0 +1,116 @@
+* {
+    font-family: 'BinggraeSamanco-Bold';
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background: rgb(255, 211, 244);
+    background: linear-gradient(90deg, rgba(255, 211, 244, 1) 0%, rgba(208, 240, 227, 0.6867121848739496) 28%, rgba(153, 227, 255, 0.7175245098039216) 58%, rgba(0, 255, 136, 0.48503151260504207) 88%);
+}
+
+input {
+    width: 230px;
+    padding: 5px;
+    outline: none;
+    border: none;
+    border-bottom: 2px white solid;
+    background-color: transparent;
+    color: white;
+    transition: all 0.3s;
+    font-size: 20px;
+}
+
+input:focus {
+    width: 250px;
+}
+
+input::placeholder {
+    color: white;
+}
+
+button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.js-calendar {
+    font-size: 60px;
+    color: white;
+    text-align: center;
+    margin-top: 250px;
+}
+
+.js-clock {
+    font-size: 100px;
+    color: white;
+    text-align: center;
+}
+
+
+.js-greeting {
+    text-align: center;
+    margin-top: 30px;
+    display: none;
+}
+
+.js-greeting input {
+    font-size: 30px;
+}
+
+
+.showing {
+    display: block;
+}
+
+.transition {
+    transition: all 1s;
+}
+
+.hello {
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 34px;
+}
+
+.js-todo {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.js-todo input {
+    font-size: 30px;
+}
+
+.js-list {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.li-style {
+    font-size: 32px;
+    color: white;
+}
+
+.button-style {
+    margin-left: 20px;
+}
+
+.weather-div {
+    text-align: right;
+    padding: 10px;
+    font-size: 24px;
+    color: rgb(250, 250, 250);
+}
+
+@font-face {
+    font-family: 'BinggraeSamanco-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/BinggraeSamanco-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
